@@ -1,0 +1,294 @@
+:root {
+  --var-fondo-1: #5e9d4f ;
+  --var-fondo-2: #d9ffc3;
+  --var-buscador: #ffffff; /* Light Greenish White */
+  --var-columna: #f3f0e6; /* Olive Drab */
+  --var-sombra: #d2d2ba ;
+  --var-input: #f8fff3;
+  --var-linea: #1c751c;
+  --var-texto:#3d3103;
+  --var-btn:#87be76;
+  --var-btn-hover: #369011;
+  --var-btn-sombra: #67a739;
+  --var-btn-eliminar: #468f34;
+  --var-btn-vaciar: #214c1a;
+  --var-texto-input: #3d3103;
+  --var-header: #67a739;
+  --var-texto-cuadro:#3d3103;
+  --var-linea-btn:#1c751c;
+} 
+
+:root.invert {
+  --var-fondo-1: #001d00 ;
+  --var-fondo-2: #316327;
+  --var-buscador: #ffffff;
+  --var-columna: rgb(238, 238, 238); /* Olive Drab */
+   --var-linea: #0a640a;
+   --var-linea-btn: #003600;
+  --var-texto:rgb(238, 238, 238);
+  --var-header:#4da34d;
+  --var-btn:#559e43;
+  --var-btn-sombra: #417b35;
+  --var-texto-input: #000000;
+  --var-texto-cuadro: #000000;
+  --var-sombra: #3e863e;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 1s;
+} 
+
+body{
+background-image: url('/images/fondo.avif');
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(45deg, var(--var-fondo-1), var(--var-fondo-2));
+}
+
+.container{
+    background-color: var(--var-columna);
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.55);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.container p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.container span{
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    color: var(--var-texto-input);
+}
+
+.container a{
+    color: var(--var-texto-cuadro);
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+    font-weight: bold;
+}
+
+.container button{
+    background-color: var(--var-btn);
+    color: var(--var-buscador);
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
+/* */
+/*Ocultar Fondo*/
+/*Ocultar Fondo*/
+/*Ocultar Fondo*/
+.container button.hidden{
+    background-color: transparent;
+    border: 2px solid var(--var-linea);
+}
+/*Ocultar Fondo*/
+/*Ocultar Fondo*/
+/*Ocultar Fondo*/
+
+
+.container form{
+    background-color: var(--var-columna);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.container input{
+    background-color: var(--var-input);
+    border: 1px solid var(--var-linea);
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+}
+.selector{
+    background-color: var(--var-input);
+    border: 1px solid var(--var-linea);
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+}
+
+
+.form-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+/* Funcion de Hover por el cursor y al hacer click Abajo xd*/
+/* Funcion de Hover por el cursor y al hacer click Abajo xd*/
+/* Funcion de Hover por el cursor y al hacer click Abajo xd*/
+.container button:hover {
+    background-color: var(--var-btn-hover);
+    color: var(--var-buscador);
+}
+
+.container button:active{
+    background-color: var(--var-btn-sombra);
+}
+/* Funcion de Hover por el cursor y al hacer click*/
+/* Funcion de Hover por el cursor y al hacer click Abajo*/
+/* Funcion de Hover por el cursor y al hacer click Abajo*/
+
+
+.iniciar-sesion{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.container.active .iniciar-sesion{
+    transform: translateX(100%);
+}
+
+.crear-cuenta{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .crear-cuenta{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+/*Palacande Cambios de Lado Izquiera y Derecha*/
+/*Palacande Cambios de Lado Izquiera y Derecha*/
+/*Palacande Cambios de Lado Izquiera y Derecha*/
+.palanca-cambios-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+
+.palanca-cambios-container img{
+    width: 14rem;
+    border-radius: 5px;
+    transform: translateY(-10%);
+}
+
+.container.active .palanca-cambios-container{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.palanca-cambios{
+    background-color: #f1ffee;
+    height: 100%;
+    background: var(--var-header);
+    color: var(--var-texto);
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .palanca-cambios{
+    transform: translateX(50%);
+}
+
+.palanca-cambios-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.palanca-cambios-izquierda{
+    transform: translateX(-200%);
+}
+
+.container.active .palanca-cambios-izquierda{
+    transform: translateX(0);
+    background-color: var(--var-header);
+}
+
+.palanca-cambios-derecha{
+    right: 0;
+    transform: translateX(0);
+    background-color: var(--var-header);
+}
+
+.container.active .palanca-cambios-derecha{
+    transform: translateX(200%);
+    background-color: var(--var-header);
+}
+/*Palacande Cambios de Lado Izquiera y Derecha*/
+/*Palacande Cambios de Lado Izquiera y Derecha*/
+/*Palacande Cambios de Lado Izquiera y Derecha*/

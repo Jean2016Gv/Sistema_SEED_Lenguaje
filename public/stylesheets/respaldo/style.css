@@ -1,0 +1,118 @@
+/* Importando fuente Google - Open Sans */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', Arial, sans-serif;
+  background-image: url('/images/fondo.avif');
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Fondo de bienvenida */
+.bienvenida-naturaleza {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Open Sans', Arial, sans-serif;
+  margin: 0; /* Elimina márgenes que puedan afectar el centrado */
+  height: auto;
+  min-height: 0;
+}
+
+/* Contenedor principal */
+.contenedor-bienvenida {
+  background: rgba(255,255,255,0.85);
+  padding: 3rem 4rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(34, 49, 63, 0.15);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Título principal */
+.contenedor-bienvenida h1 {
+  color: #388e3c;
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Logo SEED */
+.logo-seed {
+  color: #689f38;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* Párrafos */
+.contenedor-bienvenida p {
+  color: #33691e;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+/* Botón principal */
+.contenedor-bienvenida a {
+  display: inline-block;
+  background: #56ab2f;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  margin-top: 1.5rem;
+}
+
+.contenedor-bienvenida a:hover {
+  background: #388e3c;
+}
+
+/* Línea divisoria */
+.contenedor-bienvenida hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 2px solid #a8e063;
+  width: 100%;
+}
+
+/* Sección secundaria */
+.contenedor-bienvenida section h2 {
+  color: #388e3c;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contenedor-bienvenida section p {
+  color: #33691e;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  flex-shrink: 0;
+  margin-top: 2rem;
+  text-align: center;
+  color: #689f38;
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.7); /* Fondo claro solo para el footer */
+  width: 100%;
+  padding: 0.7rem 0; /* Solo el alto del texto */
+  box-sizing: border-box;
+}

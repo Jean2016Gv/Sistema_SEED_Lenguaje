@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/stylesheets/reportes.css">
+    <script src="/javascripts/modoOscuro.js" defer></script>
+    <title>Registro de Notas</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container logo-nav-container">
+            <img src="/images/logo2.png" alt="logo de la compañia">
+            <nav class="navigation ">
+                <ul>
+                    <li><a href="/loby/<%= proyecto.id_docente %>">Regresar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Tabla resumen de conteos -->
+        <div id="resumen-estudiantes" style="margin-bottom: 20px;">
+            <table style="width: 100%; max-width: 600px; margin: 0 auto; border: 2px solid #78c441; border-radius: 10px; background: #f8fff3;">
+                <thead>
+                    <tr style="background: #78c441; color: #fff;">
+                        <th>Total</th>
+                        <th>Masculinos</th>
+                        <th>Femeninos</th>
+                        <th>Aprobados</th>
+                        <th>Reprobados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="text-align: center; font-weight: bold;">
+                        <td id="total-estudiantes">0</td>
+                        <td id="total-masculinos">0</td>
+                        <td id="total-femeninos">0</td>
+                        <td id="total-aprobados">0</td>
+                        <td id="total-reprobados">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Filtros 
+        <div style="margin-bottom: 20px; text-align: center;">
+            <button type="button" class="filtro-btn" data-filtro="todos">Todos</button>
+            <button type="button" class="filtro-btn" data-filtro="masculino-aprobado">Varones Aprobados</button>
+            <button type="button" class="filtro-btn" data-filtro="masculino-reprobado">Varones Reprobados</button>
+            <button type="button" class="filtro-btn" data-filtro="femenino-aprobado">Femeninas Aprobadas</button>
+            <button type="button" class="filtro-btn" data-filtro="femenino-reprobado">Femeninas Reprobadas</button>
+            <button type="button" class="filtro-btn" data-filtro="aprobado">Todos Aprobados</button>
+            <button type="button" class="filtro-btn" data-filtro="reprobado">Todos Reprobados</button>
+        </div>
+-->
+        <!-- Filtros por lapso 
+        <div style="margin-bottom: 20px; text-align: center;">
+            <button type="button" class="lapso-toggle" data-lapso="1">Lapso 1</button>
+            <button type="button" class="lapso-toggle" data-lapso="2">Lapso 2</button>
+            <button type="button" class="lapso-toggle" data-lapso="3">Lapso 3</button>
+        </div>
+-->
+        <!-- Filtro select para lapsos -->
+        <div style="margin-bottom: 20px; text-align: center;">
+            <select id="lapso-select" class="lapso-select">
+                <option value="1">Lapso 1</option>
+                <option value="2">Lapso 2</option>
+                <option value="3">Lapso 3</option>
+            </select>
+        </div>
+
+        <!-- Filtro select -->
+        <div style="margin-bottom: 20px; text-align: center;">
+            <select id="filtro-select" class="filtro-select">
+                <option value="todos">Todos</option>
+                <option value="masculino">Solo Masculinos</option>
+                <option value="femenino">Solo Femeninas</option>
+                <option value="masculino-aprobado">Varones Aprobados</option>
+                <option value="masculino-reprobado">Varones Reprobados</option>
+                <option value="femenino-aprobado">Femeninas Aprobadas</option>
+                <option value="femenino-reprobado">Femeninas Reprobadas</option>
+                <option value="aprobado">Todos Aprobados</option>
+                <option value="reprobado">Todos Reprobados</option>
+            </select>
+        </div>
+
+        <form id="notasForm" action="/registro/<%= proyecto.id_proyecto %>" method="POST">
+            <div style="overflow-x:auto; width:100%;">
+                <table class="tabla1">
+                    <thead>
+                        <tr>
+                            <th style="background-color: #78c441; text-align: left;" class="th1" colspan="3">Registro de Notas:  <%= proyecto.programa %></th>
+                            <th style="text-align: left;" class="th1" colspan="2">Docente: <%= proyecto.docente_nombre %> <%= proyecto.docente_apellido %></th>
+                            <th style="background-color: #78c441;" class="th3" colspan="14">Actividad</th>
+                            
+                        </tr>
+                        <tr>
+                            <th style="text-align: left;" class="th1" colspan="4">Unidad Curricular: <%= proyecto.materia %></th>
+                            <th style="text-align: left;" class="th1" colspan="1">Periodo: 2025-1</th>
+                            <th class="th3" colspan="9" id="lapso-titulo">Lapso 1</th>
+                            <th class="th3" colspan="5">Acta</th>
+                        </tr>
+                        <tr>
+                            
+                            <th style="text-align: left;" class="th2" colspan="2">Sección: <%= proyecto.seccion %></th>
+                            <th style="text-align: left;" class="th2" colspan="2">Fecha: <%= new Date().toLocaleDateString() %></th>
+                            <th style="text-align: center;" class="th2">Género</th>
+                            <!-- Lapso 1 -->
+                            <th class="lapso-col-1 th4">Nota 1</th>
+<th class="lapso-col-1 th4">
+    Pts <input type="number" name="porcentaje1_1" min="0" max="10" step="0.01" value="<%= porcentaje1_1 || '' %>">
+</th>
+<th class="lapso-col-1 th4">
+    Act. <input type="text" name="actividad1_1" value="<%= actividad1_1 || '' %>">
+</th>
+<th class="lapso-col-1 th4">Nota 2</th>
+<th class="lapso-col-1 th4">
+    pts <input type="number" name="porcentaje1_2" min="0" max="100" step="0.01" value="<%= porcentaje1_2 || '' %>">
+</th>
+<th class="lapso-col-1 th4">
+    Act. <input type="text" name="actividad1_2" value="<%= actividad1_2 || '' %>">
+</th>
+
+
+<!-- Lapso 1, Actividad 3 -->
+ <th class="lapso-col-1 th4">Nota 3</th>
+<th class="lapso-col-1 th4">
+    pts <input type="number" name="porcentaje1_3" min="0" max="100" step="0.01" value="<%= porcentaje1_3 || '' %>">
+</th>
+<th class="lapso-col-1 th4">
+    Act. <input type="text" name="actividad1_3" value="<%= actividad1_3 || '' %>">
+</th>
+<th class="lapso-col-1 th4">Nota Final Lapso</th>
+<th class="lapso-col-1 th4">% Obtenido</th>
+<!-- Lapso 2 -->
+<th class="lapso-col-2 th4">Nota 1</th>
+<th class="lapso-col-2 th4">
+    pts <input type="number" name="porcentaje2_1" min="0" max="100" step="0.01" value="<%= porcentaje2_1 || '' %>">
+</th>
+<th class="lapso-col-2 th4">
+    Act. <input type="text" name="actividad2_1" value="<%= actividad2_1 || '' %>">
+</th>
+<th class="lapso-col-2 th4">Nota 2</th>
+<th class="lapso-col-2 th4">
+    pts <input type="number" name="porcentaje2_2" min="0" max="100" step="0.01" value="<%= porcentaje2_2 || '' %>">
+</th>
+<th class="lapso-col-2 th4">
+    Act. <input type="text" name="actividad2_2" value="<%= actividad2_2 || '' %>">
+</th>
+
+<!-- Lapso 2, Actividad 3 -->
+  <th class="lapso-col-2 th4">Nota 3</th>
+<th class="lapso-col-2 th4">
+    pts <input type="number" name="porcentaje2_3" min="0" max="100" step="0.01" value="<%= porcentaje2_3 || '' %>">
+</th>
+<th class="lapso-col-2 th4">
+    Act. <input type="text" name="actividad2_3" value="<%= actividad2_3 || '' %>">
+</th>
+<th class="lapso-col-2 th4">Nota Final Lapso</th>
+<th class="lapso-col-2 th4">% Obtenido</th>
+
+<!-- Lapso 3 -->
+<th class="lapso-col-3 th4">Nota 1</th>
+<th class="lapso-col-3 th4">
+    pts <input type="number" name="porcentaje3_1" min="0" max="100" step="0.01" value="<%= porcentaje3_1 || '' %>">
+</th>
+<th class="lapso-col-3 th4">
+    Act. <input type="text" name="actividad3_1" value="<%= actividad3_1 || '' %>">
+</th>
+<th class="lapso-col-3 th4">Nota 2</th>
+<th class="lapso-col-3 th4">
+    pts <input type="number" name="porcentaje3_2" min="0" max="100" step="0.01" value="<%= porcentaje3_2 || '' %>">
+</th>
+<th class="lapso-col-3 th4">
+    Act. <input type="text" name="actividad3_2" value="<%= actividad3_2 || '' %>">
+</th>
+
+
+<!-- Lapso 3, Actividad 3 -->
+ <th class="lapso-col-3 th4">Nota 3</th>
+<th class="lapso-col-3 th4">
+    pts <input type="number" name="porcentaje3_3" min="0" max="100" step="0.01" value="<%= porcentaje3_3 || '' %>">
+</th>
+<th class="lapso-col-3 th4">
+    Act. <input type="text" name="actividad3_3" value="<%= actividad3_3 || '' %>">
+</th>
+<th class="lapso-col-3 th4">Nota Final Lapso</th>
+<th class="lapso-col-3 th4">% Obtenido</th>
+                            <th class="th4" rowspan="2">Nota Definitiva</th>
+                            <th class="th4" rowspan="2">STATUS</th>
+                            <th class="th4" rowspan="2">eliminar</th>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center;" class="th2">N°</th>
+                            <th style="text-align: center;" class="th2">Apellidos</th>
+                            <th style="text-align: center;" class="th2">Nombres</th>
+                            <th style="text-align: center;" class="th2">C.I.</th>
+                            <th style="text-align: center;" class="th2">Género</th>
+                            <!-- Lapso 1 -->
+                            <th class="lapso-col-1 th4">Nota</th>
+        <th class="lapso-col-1 th4">puntajes</th>
+        <th class="lapso-col-1 th4">Actividades N1.</th>
+        <th class="lapso-col-1 th4">Nota2</th>
+        <th class="lapso-col-1 th4">puntajes</th>
+        <th class="lapso-col-1 th4">Actividades N2.</th>
+        <th class="lapso-col-1 th4">Nota3</th>
+                <th class="lapso-col-1 th4">puntajes</th>
+        <th class="lapso-col-1 th4">Actividades N3.</th>
+        <th class="lapso-col-1 th4"></th>
+        <th class="lapso-col-1 th4"></th>
+                            <!-- Lapso 2 -->
+                            <th class="lapso-col-2 th4">Nota</th>
+        <th class="lapso-col-2 th4">puntajes</th>
+      <th class="lapso-col-2 th4">Actividades N1.</th>
+        <th class="lapso-col-2 th4">Nota2</th>
+        <th class="lapso-col-2 th4">puntajes</th>
+        <th class="lapso-col-2 th4">Actividades N2.</th>
+        <th class="lapso-col-2 th4">Nota3</th>
+                <th class="lapso-col-2 th4">puntajes</th>
+        <th class="lapso-col-2 th4">Actividades N3.</th>
+        <th class="lapso-col-2 th4"></th>
+        <th class="lapso-col-2 th4"></th>
+                            <!-- Lapso 3 -->
+                            <th class="lapso-col-3 th4">Nota</th>
+        <th class="lapso-col-3 th4">puntajes</th>
+      <th class="lapso-col-3 th4">Actividades N1.</th>
+        <th class="lapso-col-3 th4">Nota2</th>
+        <th class="lapso-col-3 th4">puntajes</th>
+        <th class="lapso-col-3 th4">Actividades N2.</th>
+        <th class="lapso-col-3 th4">Nota3</th>
+                <th class="lapso-col-3 th4">puntajes</th>
+        <th class="lapso-col-3 th4">Actividades N3.</th>
+        <th class="lapso-col-3 th4"></th>
+        <th class="lapso-col-3 th4"></th>
+    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (estudiantes && estudiantes.length > 0) { %>
+                            <% estudiantes.forEach(function(est, idx) { %>
+<tr data-id-estudiante="<%= est.id_estudiante %>" data-genero="<%= est.genero %>" data-status="<%= est.status %>" style="display: table-row;">
+    <td style="text-align: center;"><%= idx + 1 %></td>
+    <td><input type="text" name="apellido[]" value="<%= est.apellido %>"></td>
+    <td><input type="text" name="nombre[]" value="<%= est.nombre %>"></td>
+    <td><input type="text" name="cedula[]" value="<%= est.cedula %>"></td>
+    <td>
+        <select name="genero[]">
+            <option value="M" <%= est.genero === 'M' ? 'selected' : '' %>>Masculino</option>
+            <option value="F" <%= est.genero === 'F' ? 'selected' : '' %>>Femenino</option>
+            <option value="N/D" <%= !est.genero || est.genero === 'N/D' ? 'selected' : '' %>>N/D</option>
+        </select>
+    </td>
+    <!-- Lapso 1 -->
+    <!-- Lapso 1, Actividad 1 -->
+    <td class="lapso-col-1"><input type="number" name="nota1_1[]" min="0" max="100" step="0.01" value="<%= est.nota1_1 || '' %>"></td>
+<td class="lapso-col-1"><%= porcentaje1_1 || '' %>pts</td>
+<td class="lapso-col-1"><%= actividad1_1 || '' %></td>
+<!-- Lapso 1, Actividad 2 -->
+<td class="lapso-col-1"><input type="number" name="nota1_2[]" min="0" max="100" step="0.01" value="<%= est.nota1_2 || '' %>"></td>
+<td class="lapso-col-1"><%= porcentaje1_2 || '' %>pts</td>
+<td class="lapso-col-1"><%= actividad1_2 || '' %></td>
+<!-- Lapso 1, Actividad 3 -->
+<td class="lapso-col-1"><input type="number" name="nota1_3[]" min="0" max="100" step="0.01" value="<%= est.nota1_3 || '' %>"></td>
+<td class="lapso-col-1"><%= porcentaje1_3 || '' %>pts</td>
+<td class="lapso-col-1"><%= actividad1_3 || '' %></td>
+<!-- Nota final y porcentaje obtenido Lapso 1 -->
+<td class="lapso-col-1"><input type="number" name="nota_final_lapso1" min="0" max="10" step="0.01" value="<%= est.nota_final_lapso1 || '' %>"></td>
+<td class="lapso-col-1"><input type="number" name="porcentaje_obtenido_lapso1" min="0" max="100" step="0.01" value="<%= est.porcentaje_obtenido_lapso1 || '' %>">%</td>
+    <!-- Lapso 2 -->
+    <td class="lapso-col-2">
+        <input type="number" name="nota2_1[]" min="0" max="100" step="0.01" value="<%= est.nota2_1 || '' %>">
+    </td>
+    <td class="lapso-col-2"><%= porcentaje2_1 || '' %>pts</td>
+    <td class="lapso-col-2"><%= actividad2_1 || '' %></td>
+    <td class="lapso-col-2">
+        <input type="number" name="nota2_2[]" min="0" max="100" step="0.01" value="<%= est.nota2_2 || '' %>">
+    </td>
+    <td class="lapso-col-2"><%= porcentaje2_2 || '' %>pts</td>
+    <td class="lapso-col-2"><%= actividad2_2 || '' %></td>
+
+    </td>
+    <!-- Lapso 2, Actividad 3 -->
+    <td class="lapso-col-2">
+        <input type="number" name="nota2_3[]" min="0" max="100" step="0.01" value="<%= est.nota2_3 || '' %>">
+    </td>
+    <td class="lapso-col-2"><%= porcentaje2_3 || '' %>pts</td>
+    <td class="lapso-col-2"><%= actividad2_3 || '' %></td>  
+      <td class="lapso-col-2">
+        <input type="number" name="nota_final_lapso2" min="0" max="100" step="0.01" value="<%= est.nota_final_lapso2 || '' %>">
+    </td>
+    <td class="lapso-col-2">
+        <input type="number" name="porcentaje_obtenido_lapso2" min="0" max="100" step="0.01" value="<%= est.porcentaje_obtenido_lapso2 || '' %>">%
+    </td>
+    <!-- Lapso 3 -->
+    <td class="lapso-col-3">
+        <input type="number" name="nota3_1[]" min="0" max="100" step="0.01" value="<%= est.nota3_1 || '' %>">
+    </td>
+    <td class="lapso-col-3"><%= porcentaje3_1 || '' %>pts</td>
+    <td class="lapso-col-3"><%= actividad3_1 || '' %></td>
+    <td class="lapso-col-3">
+        <input type="number" name="nota3_2[]" min="0" max="100" step="0.01" value="<%= est.nota3_2 || '' %>">
+    </td>
+    <td class="lapso-col-3"><%= porcentaje3_2 || '' %>pts</td>
+    <td class="lapso-col-3"><%= actividad3_2 || '' %></td>
+    <td class="lapso-col-3">
+        <input type="number" name="nota3_3[]" min="0" max="100" step="0.01" value="<%= est.nota3_3 || '' %>">
+    </td>
+    <td class="lapso-col-3"><%= porcentaje3_3 || '' %>pts</td>
+    <td class="lapso-col-3"><%= actividad3_3 || '' %></td>
+
+       <td class="lapso-col-3"><input type="number" name="nota_final_lapso3" min="0" max="10" step="0.01" value="<%= est.nota_final_lapso3 || '' %>"></td>
+    <td class="lapso-col-3"><input type="number" name="porcentaje_obtenido_lapso3" min="0" max="100" step="0.01" value="<%= est.porcentaje_obtenido_lapso3 || '' %>">%</td>
+        
+    <td><%= est.nota_final || '' %></td>
+    <td><%= est.status || '' %> </td> 
+    <td>
+        <button type="button" class="btn-vaciar-fila" data-id-estudiante="<%= est.id_estudiante %>" style="background: none; border: none; color: orange; cursor: pointer;">
+            Vaciar
+        </button>
+        <button type="button" class="btn-eliminar-fila" data-id-estudiante="<%= est.id_estudiante %>" style="background: none; border: none; color: red; cursor: pointer;">
+            Eliminar
+        </button>
+    </td>
+</tr>
+                            <% }) %>
+                        <% } %>
+                        <!-- Fila para nuevo estudiante -->
+                        <tr>
+                            <td style="text-align: center;">1</td>
+                            <td><input type="text" name="apellido[]" value=""></td>
+                            <td><input type="text" name="nombre[]" value=""></td>
+                            <td><input type="text" name="cedula[]" value=""></td>
+                            <td>
+        <select name="genero[]">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+        </select>
+    </td>
+    <!-- Lapso 1 -->
+<td class="lapso-col-1"><input type="number" name="nota1_1[]" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-1"></td>
+<td class="lapso-col-1"></td>
+<td class="lapso-col-1"><input type="number" name="nota1_2[]" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-1"></td>
+<td class="lapso-col-1"></td>
+
+<!-- Lapso 1, Actividad 3 -->
+<td class="lapso-col-1"><input type="number" name="nota1_3[]" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-1"></td>
+<td class="lapso-col-1"></td>
+
+<td class="lapso-col-1"><input type="number" name="nota_final_lapso1" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-1"><input type="number" name="porcentaje_obtenido_lapso1" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-1"></td>
+<td class="lapso-col-1"></td>
+
+
+<!-- Lapso 2 -->
+<td class="lapso-col-2"><input type="number" name="nota2_1[]" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-2"></td>
+<td class="lapso-col-2"></td>
+<td class="lapso-col-2"><input type="number" name="nota2_2[]" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-2"></td>
+<td class="lapso-col-2"></td>
+
+
+<!-- Lapso 2, Actividad 3 -->
+<td class="lapso-col-2"><input type="number" name="nota2_3[]" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-2"></td>
+<td class="lapso-col-2"></td>
+<td class="lapso-col-2"><input type="number" name="nota_final_lapso2" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-2"><input type="number" name="porcentaje_obtenido_lapso2" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-2"></td>
+<td class="lapso-col-2"></td>
+<!-- Lapso 3 -->
+<td class="lapso-col-3"><input type="number" name="nota3_1[]" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-3"></td>
+<td class="lapso-col-3"></td>
+<td class="lapso-col-3"><input type="number" name="nota3_2[]" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-3"></td>
+<td class="lapso-col-3"></td>
+<td class="lapso-col-3"><input type="number" name="nota3_3[]" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-3"></td>
+<td class="lapso-col-3"></td>
+
+<td class="lapso-col-3"><input type="number" name="nota_final_lapso3" min="0" max="100" step="0.01"></td>
+<td class="lapso-col-3"><input type="number" name="porcentaje_obtenido_lapso3" min="0" max="100" step="0.01"></td>
+    <td class="lapso-col-3"></td>
+<td class="lapso-col-3"></td>
+    <td>
+        <button type="button" class="eliminar" style="background: none; border: none; color: red; cursor: pointer;">Eliminar</button></td>
+    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button type="submit" class="filtrar" style="position: fixed; right: 40px; bottom: 40px; z-index: 1000;">
+    Guardar cambios
+</button>
+<!-- Botón Imprimir -->
+<a href="/registro/<%= proyecto.id_proyecto %>/imprimir" class="filtrar" style="position: fixed; right: 210px; bottom: 40px; z-index: 1000; text-align:center; text-decoration:none; display:inline-block;">
+    Imprimir
+</a>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+<!-- No tocar nada a partir de aqui -->
+
+
+
+    <script src="/javascripts/tabla.js" defer></script>
+</body>
+</html>

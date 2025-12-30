@@ -1,0 +1,40 @@
+        .form-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: #f8f9fa;
+            padding: 24px 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #0001;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        .btn {
+            background: #198754;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn:hover {
+            background: #145c32;
+        }

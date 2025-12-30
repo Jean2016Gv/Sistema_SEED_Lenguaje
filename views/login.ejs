@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="SEED - Plataforma de Evaluación" />
+<meta property="og:description" content="Optimiza la creación de planillas de evaluación con SEED." />
+<meta property="og:image" content="https://sis3-6y8j.onrender.com/images/logo.png" />
+<meta property="og:url" content="https://sis3-6y8j.onrender.com" />
+<meta property="og:type" content="website" />
+
+<!-- Meta Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SEED - Plataforma de Evaluación" />
+<meta name="twitter:description" content="Optimiza la creación de planillas de evaluación con SEED." />
+<meta name="twitter:image" content="https://sis3-6y8j.onrender.com/images/logo.png" />
+    
+    <link rel="stylesheet" href="./stylesheets/login.css" />
+  <script src="/javascripts/loby.js" defer></script>
+  <script src="/javascripts/modoOscuro.js" defer></script>
+  <link rel="icon" href="https://fav.farm/🔥" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Login Page</title>
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <div class="form-container crear-cuenta">
+        <form action="/agregar-docente" method="POST">
+          <h1>Crear Cuenta</h1>
+ 
+          <span>Introduce tu Información para Registrarte</span>
+          <input type="text" id="nombre" name="nombre" required placeholder="Nombre" />
+          <input type="text" id="apellido" name="apellido" required placeholder="Apellido" />
+          <input type="text" id="usuario" name="usuario" required placeholder="Usuario" />
+          <input type="email" id="correo" name="correo" required placeholder="Correo electrónico" />
+          <select id="programa" class="selector" name="programa" required>
+                <option >Seleccione la unidad...</option>
+ <option value="DEPORTE">DEPORTE</option>
+<option value="MATEMÁTICA I">MATEMÁTICA I</option>
+<option value="LÓGICA MATEMÁTICA">LÓGICA MATEMÁTICA</option>
+<option value="FORMACIÓN CONSTITUCIONAL">FORMACIÓN CONSTITUCIONAL</option>
+<option value="LENGUAJE Y COMUNICACIÓN">LENGUAJE Y COMUNICACIÓN</option>
+<option value="INGLÉS I">INGLÉS I</option>
+<option value="ECONOMÍA DIGITAL">ECONOMÍA DIGITAL</option>
+<option value="MATEMÁTICA II">MATEMÁTICA II</option>
+<option value="PROBLEMÁTICA CIENTÍFICA TECNOLÓGICA">PROBLEMÁTICA CIENTÍFICA TECNOLÓGICA</option>
+<option value="FÍSICA I">FÍSICA I</option>
+<option value="ELECTIVA I">ELECTIVA I</option>
+<option value="ALGORITMOS I">ALGORITMOS I</option>
+<option value="ARTE Y CULTURA">ARTE Y CULTURA</option>
+<option value="INGLÉS II">INGLÉS II</option>
+<option value="ALGORITMOS II">ALGORITMOS II</option>
+<option value="ELECTIVA II">ELECTIVA II</option>
+<option value="PROGRAMACIÓN I">PROGRAMACIÓN I</option>
+<option value="MATEMÁTICA III">MATEMÁTICA III</option>
+<option value="FÍSICA II">FÍSICA II</option>
+<option value="METODOLOGÍA Y TÉCNICAS DE INVESTIGACIÓN">METODOLOGÍA Y TÉCNICAS DE INVESTIGACIÓN</option>
+<option value="PROBABILIDADES Y ESTADÍSTICAS">PROBABILIDADES Y ESTADÍSTICAS</option>
+<option value="MATEMÁTICA IV">MATEMÁTICA IV</option>
+<option value="PROGRAMACIÓN II">PROGRAMACIÓN II</option>
+<option value="ELECTIVA III">ELECTIVA III</option>
+<option value="ESTRUCTURAS DISCRETAS I">ESTRUCTURAS DISCRETAS I</option>
+<option value="BASE DE DATOS">BASE DE DATOS</option>
+<option value="TEORIA DE SISTEMAS">TEORIA DE SISTEMAS</option>
+<option value="ÁLGEBRA BOOLEANA">ÁLGEBRA BOOLEANA</option>
+<option value="ESTRUCTURAS DISCRETAS II">ESTRUCTURAS DISCRETAS II</option>
+<option value="PROGRAMACIÓN III">PROGRAMACIÓN III</option>
+<option value="ELECTIVA IV">ELECTIVA IV</option>
+<option value="ORGANIZACIÓN DEL COMPUTADOR">ORGANIZACIÓN DEL COMPUTADOR</option>
+<option value="INVESTIGACIÓN DE OPERACIONES">INVESTIGACIÓN DE OPERACIONES</option>
+<option value="ARQUITECTURA DEL COMPUTADOR">ARQUITECTURA DEL COMPUTADOR</option>
+<option value="SISTEMAS DE INFORMACIÓN I">SISTEMAS DE INFORMACIÓN I</option>
+<option value="MÉTODOS NUMÉRICOS">MÉTODOS NUMÉRICOS</option>
+<option value="INGENIERÍA ECONÓMICA">INGENIERÍA ECONÓMICA</option>
+<option value="ELECTIVA V">ELECTIVA V</option>
+<option value="ORGANIZACIÓN Y GESTIÓN EMPRESARIAL">ORGANIZACIÓN Y GESTIÓN EMPRESARIAL</option>
+<option value="TRADUCTORES E INTÉRPRETES">TRADUCTORES E INTÉRPRETES</option>
+<option value="SISTEMAS OPERATIVOS">SISTEMAS OPERATIVOS</option>
+<option value="SISTEMAS DE INFORMACIÓN II">SISTEMAS DE INFORMACIÓN II</option>
+<option value="CONTROL DE PROYECTOS">CONTROL DE PROYECTOS</option>
+<option value="ELECTIVA DE ÁREA I">ELECTIVA DE ÁREA I</option>
+<option value="PASANTÍA">PASANTÍA</option>
+<option value="LENGUAJE DE PROGRAMACIÓN">LENGUAJE DE PROGRAMACIÓN</option>
+<option value="SISTEMAS DE INFORMACIÓN III">SISTEMAS DE INFORMACIÓN III</option>
+<option value="REDES">REDES</option>
+<option value="ELECTIVA LIBRE I">ELECTIVA LIBRE I</option>
+<option value="SISTEMAS DISTRIBUIDOS">SISTEMAS DISTRIBUIDOS</option>
+<option value="ELECTIVA DE ÁREA II">ELECTIVA DE ÁREA II</option>
+<option value="ÉTICA PROFESIONAL">ÉTICA PROFESIONAL</option>
+<option value="PROYECTO DE GRADO I">PROYECTO DE GRADO I</option>
+<option value="ELECTIVA DE ÁREA III">ELECTIVA DE ÁREA III</option>
+<option value="ELECTIVA LIBRE II">ELECTIVA LIBRE II</option>
+<option value="PROYECTO DE GRADO II">PROYECTO DE GRADO II</option>
+<option value="INFORMÁTICA EDUCATIVA">INFORMÁTICA EDUCATIVA</option>
+<option value="GERENCIA DE PROYECTO">GERENCIA DE PROYECTO</option>
+<option value="ELECTIVA DE ÁREA III">ELECTIVA DE ÁREA III</option>
+            </select>
+          <input type="password" id="password" name="password" required placeholder="Contraseña" />
+          <button>Crear Cuenta</button>
+        </form>
+      </div>
+
+
+      <div class="form-container iniciar-sesion">
+        <form action="/login" method="POST">
+          <h1>Iniciar Sesion  </h1>
+              <span class="material-symbols-outlined invert__theme">SEED</span>
+          <input type="text" id="usuario" name="usuario" required placeholder="Usuario" />
+          <input type="password" id="password" name="password" required placeholder="Contraseña" />
+          <select id="programa" class="selector" name="programa" required   >
+                <option >Seleccione la unidad...</option>
+<option value="DEPORTE">DEPORTE</option>
+<option value="MATEMÁTICA I">MATEMÁTICA I</option>
+<option value="LÓGICA MATEMÁTICA">LÓGICA MATEMÁTICA</option>
+<option value="FORMACIÓN CONSTITUCIONAL">FORMACIÓN CONSTITUCIONAL</option>
+<option value="LENGUAJE Y COMUNICACIÓN">LENGUAJE Y COMUNICACIÓN</option>
+<option value="INGLÉS I">INGLÉS I</option>
+<option value="ECONOMÍA DIGITAL">ECONOMÍA DIGITAL</option>
+<option value="MATEMÁTICA II">MATEMÁTICA II</option>
+<option value="PROBLEMÁTICA CIENTÍFICA TECNOLÓGICA">PROBLEMÁTICA CIENTÍFICA TECNOLÓGICA</option>
+<option value="FÍSICA I">FÍSICA I</option>
+<option value="ELECTIVA I">ELECTIVA I</option>
+<option value="ALGORITMOS I">ALGORITMOS I</option>
+<option value="ARTE Y CULTURA">ARTE Y CULTURA</option>
+<option value="INGLÉS II">INGLÉS II</option>
+<option value="ALGORITMOS II">ALGORITMOS II</option>
+<option value="ELECTIVA II">ELECTIVA II</option>
+<option value="PROGRAMACIÓN I">PROGRAMACIÓN I</option>
+<option value="MATEMÁTICA III">MATEMÁTICA III</option>
+<option value="FÍSICA II">FÍSICA II</option>
+<option value="METODOLOGÍA Y TÉCNICAS DE INVESTIGACIÓN">METODOLOGÍA Y TÉCNICAS DE INVESTIGACIÓN</option>
+<option value="PROBABILIDADES Y ESTADÍSTICAS">PROBABILIDADES Y ESTADÍSTICAS</option>
+<option value="MATEMÁTICA IV">MATEMÁTICA IV</option>
+<option value="PROGRAMACIÓN II">PROGRAMACIÓN II</option>
+<option value="ELECTIVA III">ELECTIVA III</option>
+<option value="ESTRUCTURAS DISCRETAS I">ESTRUCTURAS DISCRETAS I</option>
+<option value="BASE DE DATOS">BASE DE DATOS</option>
+<option value="TEORIA DE SISTEMAS">TEORIA DE SISTEMAS</option>
+<option value="ÁLGEBRA BOOLEANA">ÁLGEBRA BOOLEANA</option>
+<option value="ESTRUCTURAS DISCRETAS II">ESTRUCTURAS DISCRETAS II</option>
+<option value="PROGRAMACIÓN III">PROGRAMACIÓN III</option>
+<option value="ELECTIVA IV">ELECTIVA IV</option>
+<option value="ORGANIZACIÓN DEL COMPUTADOR">ORGANIZACIÓN DEL COMPUTADOR</option>
+<option value="INVESTIGACIÓN DE OPERACIONES">INVESTIGACIÓN DE OPERACIONES</option>
+<option value="ARQUITECTURA DEL COMPUTADOR">ARQUITECTURA DEL COMPUTADOR</option>
+<option value="SISTEMAS DE INFORMACIÓN I">SISTEMAS DE INFORMACIÓN I</option>
+<option value="MÉTODOS NUMÉRICOS">MÉTODOS NUMÉRICOS</option>
+<option value="INGENIERÍA ECONÓMICA">INGENIERÍA ECONÓMICA</option>
+<option value="ELECTIVA V">ELECTIVA V</option>
+<option value="ORGANIZACIÓN Y GESTIÓN EMPRESARIAL">ORGANIZACIÓN Y GESTIÓN EMPRESARIAL</option>
+<option value="TRADUCTORES E INTÉRPRETES">TRADUCTORES E INTÉRPRETES</option>
+<option value="SISTEMAS OPERATIVOS">SISTEMAS OPERATIVOS</option>
+<option value="SISTEMAS DE INFORMACIÓN II">SISTEMAS DE INFORMACIÓN II</option>
+<option value="CONTROL DE PROYECTOS">CONTROL DE PROYECTOS</option>
+<option value="ELECTIVA DE ÁREA I">ELECTIVA DE ÁREA I</option>
+<option value="PASANTÍA">PASANTÍA</option>
+<option value="LENGUAJE DE PROGRAMACIÓN">LENGUAJE DE PROGRAMACIÓN</option>
+<option value="SISTEMAS DE INFORMACIÓN III">SISTEMAS DE INFORMACIÓN III</option>
+<option value="REDES">REDES</option>
+<option value="ELECTIVA LIBRE I">ELECTIVA LIBRE I</option>
+<option value="SISTEMAS DISTRIBUIDOS">SISTEMAS DISTRIBUIDOS</option>
+<option value="ELECTIVA DE ÁREA II">ELECTIVA DE ÁREA II</option>
+<option value="ÉTICA PROFESIONAL">ÉTICA PROFESIONAL</option>
+<option value="PROYECTO DE GRADO I">PROYECTO DE GRADO I</option>
+<option value="ELECTIVA DE ÁREA III">ELECTIVA DE ÁREA III</option>
+<option value="ELECTIVA LIBRE II">ELECTIVA LIBRE II</option>
+<option value="PROYECTO DE GRADO II">PROYECTO DE GRADO II</option>
+<option value="INFORMÁTICA EDUCATIVA">INFORMÁTICA EDUCATIVA</option>
+<option value="GERENCIA DE PROYECTO">GERENCIA DE PROYECTO</option>
+<option value="ELECTIVA DE ÁREA III">ELECTIVA DE ÁREA III</option>
+            </select>
+          <a href="/forgot-password">Olvidaste Tu Contraseña?</a>
+          <button type="submit">Iniciar Sesion</button>
+        </form>
+      </div>
+
+
+      <div class="palanca-cambios-container">
+        <div class="palanca-cambios">
+          <div class="palanca-cambios-panel palanca-cambios-izquierda">
+            <img src="/images/logo4.png" alt="" srcset="">
+            <h1>Bienvenido de Nuevo!</h1>
+            <p>¿Ya Tienes Cuenta?</p>
+            <button class="hidden" id="login">Iniciar Sesion</button>
+          </div>
+          
+          <div class="palanca-cambios-panel palanca-cambios-derecha">
+            <img src="/images/logo4.png" alt="" srcset="">
+            <h1>Hola!</h1>
+            <p>¿No Tienes Cuenta?</p>
+            <button class="hidden" id="register">Crear Cuenta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./javascripts/script.js"></script>
+  </body>
+</html>

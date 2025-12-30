@@ -1,0 +1,117 @@
+:root {
+  --var-fondo-1: #5e9d4f ;
+  --var-fondo-2: #d9ffc3;
+  --var-buscador: #ffffff; /* Light Greenish White */
+  --var-columna: #f3f0e6; /* Olive Drab */
+  --var-sombra: #d2d2ba ;
+  --var-input: #f8fff3;
+  --var-linea: #1c751c;
+  --var-texto:#3d3103;
+  --var-btn:#87be76;
+  --var-btn-hover: #369011;
+  --var-btn-sombra: #67a739;
+  --var-btn-eliminar: #468f34;
+  --var-btn-vaciar: #214c1a;
+  --var-texto-input: #3d3103;
+  --var-header: #67a739;
+  --var-texto-cuadro:#3d3103;
+  --var-linea-btn:#1c751c;
+} 
+
+:root.invert {
+  --var-fondo-1: #001d00 ;
+  --var-fondo-2: #316327;
+  --var-buscador: #ffffff;
+  --var-columna: rgb(238, 238, 238); /* Olive Drab */
+   --var-linea: #0a640a;
+   --var-linea-btn: #003600;
+  --var-texto:rgb(238, 238, 238);
+  --var-header:#4da34d;
+  --var-btn:#559e43;
+  --var-btn-sombra: #417b35;
+  --var-texto-input: #000000;
+  --var-texto-cuadro: #000000;
+  --var-sombra: #3e863e;
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    transition: background-color 1s;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+body{
+background: linear-gradient(45deg, var(--var-fondo-1), var(--var-fondo-2));
+background-position: center center;
+background-size: cover;
+background-attachment: fixed;
+height: 95vh;
+font-family: 'Nunito', sans-serif;
+}
+       
+       
+       
+       
+       .form-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: var(--var-columna);
+            padding: 24px 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #0001;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 2px solid var(--var-linea);
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        .btn {
+            background: var(--var-btn-sombra);
+            color: var(--var-texto);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: var(--var-btn-hover);
+        }
+        .eliminar-cuenta-container {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 400px;
+    margin: 24px auto 0 auto;
+}
+.btn-eliminar-cuenta {
+    background: #b94a48 !important;
+    color: #fff !important;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.btn-eliminar-cuenta:hover {
+    background: #a94442 !important;
+}

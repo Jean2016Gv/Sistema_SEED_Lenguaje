@@ -1,0 +1,389 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Base styles for Material Symbols Outlined */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Default icon size, can be overridden */
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+  vertical-align: middle; /* Helps align with adjacent text */
+  transition: background-color 5s;
+}
+
+:root {
+  --var-fondo: #b0de9c;
+  --var-buscador: #ffffff; /* Light Greenish White */
+  --var-columna: #f3f0e6; /* Olive Drab */
+  --var-cuadro2: #f3f0e6;
+  --var-iconos:#357c28;
+  --var-linea: #228a22;
+  --var-texto:#3d3103;
+  --var-btn:#87be76;
+}
+
+:root.invert {
+  --var-fondo: #10340d;
+  --var-buscador: #ffffff;
+  --var-columna: #4da34d; /* Olive Drab */
+  --var-cuadro2:#4da34d;
+  --var-iconos: white;
+  --var-linea: #1c6c1c;
+  --var-texto:white;
+  --var-btn:#1e7a1e;
+}
+
+*{
+  transition: background-color 1s;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--var-texto);
+  background-color: var(--var-fondo);
+  height: min-content; /* Hace que el body solo sea tan alto como su contenido */
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sidebar {
+  background-color: var(--var-columna);
+  padding: 1em;
+  color: var(--var-texto);
+}
+
+.sidebar__logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Updated for the logo icon span */
+/* Updated for the logo image */
+.sidebar__logo > img.logo__img {
+  width: 130px; /* Ajusta el ancho según necesites */
+  object-fit: contain; /* Para asegurar que la imagen se escale bien sin distorsionarse */
+}
+
+.sidebar__logo > p {
+  flex: 1; /* Takes remaining space */
+  font-size: 1.5rem;
+  margin-left: 0.5em;
+  font-weight: bold;
+}
+
+.sidebar .lists {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1em;
+}
+
+.sidebar > .lists > ul {
+  margin-top: 2.5em;
+}
+
+.sidebar > .lists > ul > li {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+/* Updated for list item icons */
+.sidebar .lists > ul > li > .material-symbols-outlined {
+  font-size: 1.5rem; /* Approx 24px */
+  color: var(--var-texto);
+}
+
+.sidebar .lists > ul > li > span {
+  font-weight: 500;
+}
+
+.sidebar .lists > ul > li + li {
+  margin-top: 1em;
+}
+
+/* main */
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto; /* Las filas se ajustan a la altura de su contenido */
+}
+
+header {
+  padding: 2em;
+  display: grid;
+  gap: 20px 2px;
+  grid-template-columns: 4fr 2fr;
+  grid-template-rows: 2;
+  border-bottom: 3px solid var(--var-linea); /* Using a variable for consistency */
+  width: 100%;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+/* Updated for search icon */
+.search > .material-symbols-outlined {
+  font-size: 1.5rem; /* Approx 24px */
+  color: var(--var-iconos);
+}
+
+.search > input {
+  border: none;
+  border-radius: 1em;
+  background-color: var(--var-buscador);
+  width: 100%;
+  padding: 0.5em;
+}
+
+.search > input::placeholder {
+  visibility: hidden;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1em;
+  font-weight: bold;
+  ;
+} 
+
+.cuadro2{
+  display: flex;
+  align-items: center; /* Asegura que la imagen y el texto estén alineados verticalmente */
+  gap: 1em; /* Espaciado entre la imagen y el texto */
+  padding: 10px;
+  background-color: var(--var-cuadro2);
+  border-radius: 5px;
+}
+
+.cuadro-img img {
+  height: auto;
+  transform: translateX(20%);
+}
+
+.cuadro-span {
+  font-size: 0.85em;
+  font-weight: bold;
+  transform: translateX(-15%);
+  color: var(--var-texto);
+}
+
+
+
+/* Updated for status icons */
+.status > .material-symbols-outlined {
+  font-size: 1.5rem; /* Approx 24px */
+  cursor: pointer;
+  color: var(--var-iconos);
+}
+
+.cuadro{
+  width: 100%;
+}
+.welcome {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-weight: bold;
+  padding: 10px;
+  background-color: var(--var-cuadro2);
+  border-radius: 7px;
+  
+}
+
+.welcome > div > p:first-child {
+  font-size: 0.85rem;
+  margin: 0;
+  color: var(--var-texto);
+}
+
+.welcome > div > p:last-child {
+  margin: 0;
+  font-size: 1.2rem;
+  color:  var(--var-texto);
+}
+
+.header__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5em;
+  padding: 15px;
+  margin-top: -120px;
+  background-color: var(--var-cuadro2) ;
+  height: 120px;
+  transform: translateX(50%);
+  border-radius: 7px;
+}
+
+.header__buttons > button {
+  border: none;
+  border-radius: 1.5em;
+  background-color: var(--var-btn);
+  color: var(--var-texto);
+  padding: 0.75em 2em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.user__logo {
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.user__logo.user__logo--small {
+  width: 50%;
+  height: 50%;
+  border-radius: 4px;
+}
+
+.user__logo.user__logo--big {
+  width: 140px;
+  height: 100px;
+  border-radius: 7px;
+}
+
+/* content  */
+
+.content {
+  background-color: var(--var-buscador);
+  display: grid;
+  grid-template-columns: 1fr; /* Hace que .projects ocupe todo el ancho */
+  align-items: start;
+  align-content: start;
+}
+
+.projects {
+  padding: 1em;
+}
+
+.projects > .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.projects > h2,
+.trending > h2 {
+  font-size: 1.125rem;
+}
+
+.card {
+  background-color: var(--var-cuadro2);
+  border-radius: 8px;
+  border-left: 5px solid var(--var-linea);
+  padding: 1.5em 1em;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: var(--var-texto);
+  font-weight: bold;
+}
+
+.card__heading {
+  font-weight: bold;
+  margin: 0;
+}
+
+.card__desc {
+  opacity: 0.9;
+  margin: 0;
+}
+
+.card__icons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 1.5em;
+  justify-self: flex-end;
+  height: 100%;
+  padding: 1em;
+}
+
+/* Updated for card icons */
+.card__icons > .material-symbols-outlined {
+  font-size: 1.4rem; /* Approx 22px, adjust as needed */
+  cursor: pointer;
+  opacity: 0.9;
+  color: var(--var-texto);
+}
+
+.btn-eliminar-proyecto{
+  background-color: var(--var-btn);
+}
+
+@media (max-width: 768px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  body > aside {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  header > .status {
+    display: none;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --txt-clr: #E8F5E9;      /* Light Greenish White */
+    --bg-clr-prm: #3A4D39;   /* Dark Olive Green */
+    --bg-clr-sec: #4F6A4F;   /* Slightly Lighter Dark Olive Green */
+  }
+
+  :root.invert {
+    --txt-clr: #3A4D39;   /* Dark Olive Green */
+    --bg-clr-prm: #F5F5DC; /* Beige */
+    --bg-clr-sec: #E8F5E9; /* Light Greenish White */
+  }
+}

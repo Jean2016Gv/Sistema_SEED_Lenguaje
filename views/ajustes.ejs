@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Docente</title>
+    <link rel="stylesheet" href="/stylesheets/ajustes.css">
+    <script src="/javascripts/modoOscuro.js" defer></script>
+
+</head>
+<body> 
+    <div class="eliminar-cuenta-container">
+        <form action="/ajustes/<%= docente.id_docente %>/eliminar" method="POST" id="form-eliminar-cuenta">
+            <button type="submit" class="btn-eliminar-cuenta" style="background:#b94a48; margin-top:16px;">Eliminar Cuenta</button>
+        </form>
+    </div>
+    <div class="form-container">
+        <h2>Editar Datos del Docente</h2>
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div style="color: #b94a48; background: #f2dede; padding: 10px; border-radius: 4px; margin-bottom: 16px;">
+                <%= error %>
+            </div>
+        <% } %>
+        <form action="/ajustes/<%= docente.id_docente %>/editar" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" value="<%= docente.nombre %>" required>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" value="<%= docente.apellido %>" required>
+            </div>
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" value="<%= docente.usuario %>" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="correo" value="<%= docente.correo %>" required>
+            </div>
+            <div class="form-group">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" name="contraseña" placeholder="Nueva contraseña (dejar en blanco para no cambiar)">
+            </div>
+            <button type="submit" class="btn">Guardar Cambios</button>
+        </form>
+
+        <a href="/loby/<%= docente.id_docente %>" class="btn" style="margin-top:16px; display:block; text-align:center;">Regresar</a>
+    </div>
+    <script>
+    document.getElementById('form-eliminar-cuenta').addEventListener('submit', function(e) {
+        if(!confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.')) {
+            e.preventDefault();
+        }
+    });
+    </script>
+</body>
+</html>

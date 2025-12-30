@@ -1,0 +1,300 @@
+/* Base styles for Material Symbols Outlined */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Default icon size, can be overridden */
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+  vertical-align: middle; /* Helps align with adjacent text */
+  transition: background-color 5s;
+}
+
+:root {
+  --var-fondo-1: #5e9d4f ;
+  --var-fondo-2: #d9ffc3;
+  --var-buscador: #ffffff; /* Light Greenish White */
+  --var-columna: #f3f0e6; /* Olive Drab */
+  --var-header: #f3f0e6;  ;
+  --var-sombra: #d2d2ba ;
+  --var-form: #228a22; 
+  --var-linea: #228a22;
+  --var-select: #71c336;
+  --var-select-sombra: #589a28;
+  --var-select-btn:#2d780f;
+  --var-sombra-btn: #5b9e2b;
+  --var-shadow-btn: #0e5100;
+  --var-texto:#3d3103;
+  --var-texto-input: #3d3103;
+}
+
+:root.invert {
+  --var-fondo-1: #001d00 ;
+  --var-fondo-2: #316327;
+  --var-buscador: #ffffff; /* Light Greenish White */
+  --var-columna: #4da34d; /* Olive Drab */
+  --var-header: rgb(238, 238, 238);   
+  --var-form: #228a22; 
+  --var-linea: #0a640a;
+  --var-select: #417b35;
+  --var-select-sombra: #3c7032;
+  --var-select-btn:#417b35;
+  --var-sombra-btn: #3c7032;
+  --var-shadow-btn: #0e5100;
+  --var-texto:rgb(238, 238, 238);
+  --var-texto-input: #000000;
+}
+
+*{
+  transition: background-color 1s;
+}
+
+
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #333;
+    font-size: 1.2rem;
+    line-height: 1.4em;
+    margin: 0;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-position: center center;
+    background: linear-gradient(45deg, var(--var-fondo-1), var(--var-fondo-2));
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container{
+    width: 85%;
+    margin: auto;
+    margin: 0 auto;
+}
+
+.header{
+    background-color:  var(--var-columna);
+    color: var(--var-texto);
+    padding: 0.5rem 0;
+}
+
+.header a{
+    color: var(--var-texto);
+    text-decoration: none;
+}
+
+.logo-nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ img{
+    height: 70px;
+    margin-left: -116px;   /* Casi pegado al borde izquierdo */
+    margin-right: 30px;  /* Espacio entre logo y navegación */
+    display: block;
+}
+
+.navigation ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navigation ul li {
+    display: inline-block;
+}
+
+.navigation ul li a{
+    color: var(--var-texto);
+    text-decoration: none;
+}
+
+.navigation ul li a{
+    transform: translateX(100%);
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear;
+    border-radius: 5px;
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+}
+
+.navigation ul li a:hover{
+    background-color: var(--var-sombra) ;
+}
+
+
+form{
+    padding: 50px 55px;
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border:3px solid  var(--var-linea);
+    text-align: center;
+    width: 340px;
+    margin-left: 36%;
+    transform: translateY(5%);
+    margin-bottom: 20px;
+    background-color: var(--var-header);
+    
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-family: "Prompt", sans-serif;
+    
+}
+
+label{
+    color: var(--var-texto-input);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-family: "Prompt", sans-serif;
+    margin-left: -6%;
+}
+
+input{
+    padding: 17px 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: var(--var-buscador);
+    border: 3px solid var(--var-linea);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Prompt", sans-serif;
+    width: 100%;
+    margin-left: -7%;
+}
+
+select{
+    cursor: pointer;
+    appearance: none;
+    padding: 20px 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: var(--var-select) ;
+    border: 3px solid var(--var-linea) ;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Prompt", sans-serif;
+    transition: all 0.4s linear;
+    width: 114%;
+    margin-left: -7%;
+}
+
+.bi-caret-down-fill{
+    margin-left: 97%;
+    transform: translateY(-230%);
+    cursor: pointer;
+}
+
+select:focus{
+    outline: none; 
+}
+
+select:hover{
+    background-color: var(--var-select-sombra) ;
+}
+
+
+input:focus {
+    border: 3px solid var(--var-select-btn);
+    outline: none; 
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; 
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield; /* Añadido para seguir buenas prácticas y posibles linters */
+}
+
+.btn{
+    font-size: 17px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    font-family: "Prompt", sans-serif;
+    background-color: var(--var-select);
+    color: var(--var-texto);
+    border: 3px solid var(--var-linea);
+    transform: translateY(50%);
+}
+
+.btn:hover{
+    background-color: var(--var-sombra-btn);
+    box-shadow: 0 0 10px var(--var-shadow-btn);
+}
+
+
+
+h2{
+    font-family: "Josefin Sans", sans-serif;
+    color: var(--var-texto-input);
+    margin-bottom: 10%;
+}
+
+.radio-container {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.custom-radio input {
+    display: none; 
+}
+
+.radio-mark {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #2d780f;  
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.custom-radio input:checked + .radio-mark {
+    background-color: #2d780f;  
+}
+
+.custom-radio input:checked + .radio-mark::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

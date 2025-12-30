@@ -1,0 +1,337 @@
+/* Base styles for Material Symbols Outlined */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Default icon size, can be overridden */
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+  vertical-align: middle; /* Helps align with adjacent text */
+  transition: background-color 5s;
+}
+
+:root {
+  --var-fondo-1: #5e9d4f ;
+  --var-fondo-2: #d9ffc3;
+  --var-buscador: #ffffff; /* Light Greenish White */
+  --var-columna: #f3f0e6; /* Olive Drab */
+  --var-sombra: #d2d2ba ;
+  --var-input: #f8fff3;
+  --var-linea: #1c751c;
+  --var-texto:#3d3103;
+  --var-btn:#78c441;
+  --var-btn-hover: #62a135;
+  --var-btn-sombra: #67a739;
+  --var-btn-eliminar: #468f34;
+  --var-btn-vaciar: #214c1a;
+  --var-texto-input: #3d3103;
+  --var-header: #f3f0e6;;
+  --var-texto-cuadro:#3d3103;
+  --var-linea-btn:#1c751c;
+} 
+
+:root.invert {
+  --var-fondo-1: #001d00 ;
+  --var-fondo-2: #316327;
+  --var-buscador: #ffffff;
+  --var-columna: rgb(238, 238, 238); /* Olive Drab */
+   --var-linea: #0a640a;
+   --var-linea-btn: #003600;
+  --var-texto:rgb(238, 238, 238);
+  --var-header:#4da34d;
+  --var-btn:#559e43;
+  --var-btn-sombra: #417b35;
+  --var-texto-input: #000000;
+  --var-texto-cuadro: #000000;
+  --var-sombra: #3e863e;
+}
+
+*{
+  transition: background-color 1s;
+}
+body{
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(45deg, var(--var-fondo-1), var(--var-fondo-2));
+    color: var(--var-texto);
+}
+
+button{
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid var(--var-linea-btn);
+    background: var(--var-columna);
+    color: var(--var-texto-input);
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: 2s;
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+    color: var(--var-texto);
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;  
+}
+
+a:hover{
+    background-color: var(--var-btn-sombra);
+}
+
+button-select:focus {
+    border-color: var(--var-linea-btn);
+}
+
+button-select:hover {
+    background: var(--var-btn-sombra);
+}
+
+.filtro-select{
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid var(--var-linea-btn);
+    background: var(--var-columna);
+    color: var(--var-texto-input);
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: 2s;
+    font-weight: bold;
+}
+
+.filtro-select:focus {
+    border-color: var(--var-linea-btn);
+}
+
+.filtro-select:hover {
+    background: var(--var-btn) ;
+}
+
+.pollo {
+    text-align: center; 
+    position: relative;
+    top: 0;
+    width: 80%; 
+    margin: auto;  
+    font-size: 20px; 
+    font-weight: bold;
+    line-height: 1.2; 
+    padding: 10px 0; 
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.signature {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left; 
+    margin-top: 30px; 
+    padding: 10px;
+}
+
+/* Estilo para impresión y visualización de la tabla */
+table {
+    border-collapse: collapse;
+    width: 98%;
+    margin: 0 auto 20px auto;
+    background: #fff;
+    font-size: 15px;
+}
+
+table th, table td {
+    padding: 4px 6px;
+    max-width: 120px;
+    vertical-align: middle;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #444;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+}
+
+/* Solo aplica nowrap y ellipsis a las celdas de actividades y notas */
+td.actividad, td.nota, th.actividad, th.nota {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
+/* Tamaño reducido para Nota Definitiva */
+th.nota-definitiva, td.nota-definitiva {
+    max-width: 60px !important;
+    width: 60px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+table th {
+    background: #e6f4ea;
+    font-weight: bold;
+    color: #222;
+}
+
+@media print {
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        margin-bottom: 60px !important; /* Ajusta según el alto real del footer */
+    }
+    .no-print {
+        display: none !important;
+    }
+    table th, table td {
+        color: #000 !important;
+        background: #fff !important;
+        border: 1px solid #000 !important;
+        font-size: 11px !important;
+        padding: 4px 8px !important;
+        max-width: 120px !important;
+    }
+    table th {
+        background: #e6e6e6 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .pollo {
+        color: #000 !important;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #fff !important;
+        color: #000 !important;
+        display: block !important;
+        text-align: center;
+        font-size: 14px;
+        z-index: 9999;
+        border-top: 1px solid #ccc;
+        padding: 8px 0;
+    }
+}
+
+.pdf-export body,
+.pdf-export {
+    background: #fff !important;
+    color: #000 !important;
+    
+}
+.pdf-export .no-print {
+    display: none !important;
+}
+.pdf-export table th,
+.pdf-export table td {
+    color: #000 !important;
+    background: #fff !important;
+    border: 1px solid #000 !important;
+    font-size: 11px !important;      /* Igual que @media print */
+    padding: 4px 8px !important;     /* Igual que @media print */
+    max-width: 120px !important;     /* Igual que @media print */
+}
+.pdf-export table th {
+    background: #e6e6e6 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+.pdf-export .pollo {
+    color: #000 !important;
+ 
+}
+.pdf-export footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff !important;
+    color: #000 !important;
+    display: block !important;
+    text-align: center;
+    font-size: 14px;
+    z-index: 9999;
+    border-top: 1px solid #ccc;
+    padding: 8px 0;
+}
+
+#contenido-pdf.pdf-export {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    max-width: 210mm !important;
+    margin: 0 auto !important;
+    background: #fff !important;
+    box-sizing: border-box !important;
+    padding: 10mm 10mm 30mm 10mm !important;
+    overflow: visible !important;
+}
+
+.header-logos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.logo-ais {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    margin: 0 10px;
+    display: block;
+}
+
+.logo-unerg {
+    width: 140px;
+    height: 140px;
+    max-width: 140px;
+    max-height: 140px;
+    object-fit: contain;
+    margin: 0 10px;
+    display: block;
+}
+
+@media print {
+    .header-logos {
+        margin-bottom: 10px;
+    }
+    .logo-ais {
+        width: 100px !important;
+        height: 100px !important;
+        max-width: 100px !important;
+        max-height: 100px !important;
+    }
+    .logo-unerg {
+        width: 140px !important;
+        height: 140px !important;
+        max-width: 140px !important;
+        max-height: 140px !important;
+    }
+}

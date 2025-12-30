@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/stylesheets/creacion.css">
+   <script src="/javascripts/loby.js" defer></script>
+  <script src="/javascripts/modoOscuro.js" defer></script>
+    <title>Formulario</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container logo-nav-container">
+            <img src="/images/logo2.png" alt="logo de la compañia">
+            <nav class="navigation ">
+                <ul>
+                    <li><a href="/loby/<%= id_docente %>">Regresar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    
+    <form action="/proyectos/crear-con-pdf/<%= id_docente %>" method="POST" enctype="multipart/form-data">
+        <h2>FORMULARIO</h2>
+        <div class="input-group">
+            <label for="name">Nombre del programa de formación</label>
+            <input type="text" name="programa" id="name" required>
+
+            <label for="name">Nombre de la unidad curricular</label> 
+            <select name="materia" id="unidadCurricular" required>
+                <option>Seleccione la unidad...</option>
+  <option value="FUNDAMENTOS DE LA INFORMÁTICA">FUNDAMENTOS DE LA INFORMÁTICA</option>
+<option value="DEPORTE">DEPORTE</option>
+<option value="MATEMÁTICA I">MATEMÁTICA I</option>
+<option value="LÓGICA MATEMÁTICA">LÓGICA MATEMÁTICA</option>
+<option value="FORMACIÓN CONSTITUCIONAL">FORMACIÓN CONSTITUCIONAL</option>
+<option value="LENGUAJE Y COMUNICACIÓN">LENGUAJE Y COMUNICACIÓN</option>
+<option value="INGLÉS I">INGLÉS I</option>
+<option value="ECONOMÍA DIGITAL">ECONOMÍA DIGITAL</option>
+<option value="MATEMÁTICA II">MATEMÁTICA II</option>
+<option value="PROBLEMÁTICA CIENTÍFICA TECNOLÓGICA">PROBLEMÁTICA CIENTÍFICA TECNOLÓGICA</option>
+<option value="FÍSICA I">FÍSICA I</option>
+<option value="ELECTIVA I">ELECTIVA I</option>
+<option value="ALGORITMOS I">ALGORITMOS I</option>
+<option value="ARTE Y CULTURA">ARTE Y CULTURA</option>
+<option value="INGLÉS II">INGLÉS II</option>
+<option value="ALGORITMOS II">ALGORITMOS II</option>
+<option value="ELECTIVA II">ELECTIVA II</option>
+<option value="PROGRAMACIÓN I">PROGRAMACIÓN I</option>
+<option value="MATEMÁTICA III">MATEMÁTICA III</option>
+<option value="FÍSICA II">FÍSICA II</option>
+<option value="METODOLOGÍA Y TÉCNICAS DE INVESTIGACIÓN">METODOLOGÍA Y TÉCNICAS DE INVESTIGACIÓN</option>
+<option value="PROBABILIDADES Y ESTADÍSTICAS">PROBABILIDADES Y ESTADÍSTICAS</option>
+<option value="MATEMÁTICA IV">MATEMÁTICA IV</option>
+<option value="PROGRAMACIÓN II">PROGRAMACIÓN II</option>
+<option value="ELECTIVA III">ELECTIVA III</option>
+<option value="ESTRUCTURAS DISCRETAS I">ESTRUCTURAS DISCRETAS I</option>
+<option value="BASE DE DATOS">BASE DE DATOS</option>
+<option value="TEORIA DE SISTEMAS">TEORIA DE SISTEMAS</option>
+<option value="ÁLGEBRA BOOLEANA">ÁLGEBRA BOOLEANA</option>
+<option value="ESTRUCTURAS DISCRETAS II">ESTRUCTURAS DISCRETAS II</option>
+<option value="PROGRAMACIÓN III">PROGRAMACIÓN III</option>
+<option value="ELECTIVA IV">ELECTIVA IV</option>
+<option value="ORGANIZACIÓN DEL COMPUTADOR">ORGANIZACIÓN DEL COMPUTADOR</option>
+<option value="INVESTIGACIÓN DE OPERACIONES">INVESTIGACIÓN DE OPERACIONES</option>
+<option value="ARQUITECTURA DEL COMPUTADOR">ARQUITECTURA DEL COMPUTADOR</option>
+<option value="SISTEMAS DE INFORMACIÓN I">SISTEMAS DE INFORMACIÓN I</option>
+<option value="MÉTODOS NUMÉRICOS">MÉTODOS NUMÉRICOS</option>
+<option value="INGENIERÍA ECONÓMICA">INGENIERÍA ECONÓMICA</option>
+<option value="ELECTIVA V">ELECTIVA V</option>
+<option value="ORGANIZACIÓN Y GESTIÓN EMPRESARIAL">ORGANIZACIÓN Y GESTIÓN EMPRESARIAL</option>
+<option value="TRADUCTORES E INTÉRPRETES">TRADUCTORES E INTÉRPRETES</option>
+<option value="SISTEMAS OPERATIVOS">SISTEMAS OPERATIVOS</option>
+<option value="SISTEMAS DE INFORMACIÓN II">SISTEMAS DE INFORMACIÓN II</option>
+<option value="CONTROL DE PROYECTOS">CONTROL DE PROYECTOS</option>
+<option value="ELECTIVA DE ÁREA I">ELECTIVA DE ÁREA I</option>
+<option value="PASANTÍA">PASANTÍA</option>
+<option value="LENGUAJE DE PROGRAMACIÓN">LENGUAJE DE PROGRAMACIÓN</option>
+<option value="SISTEMAS DE INFORMACIÓN III">SISTEMAS DE INFORMACIÓN III</option>
+<option value="REDES">REDES</option>
+<option value="ELECTIVA LIBRE I">ELECTIVA LIBRE I</option>
+<option value="SISTEMAS DISTRIBUIDOS">SISTEMAS DISTRIBUIDOS</option>
+<option value="ELECTIVA DE ÁREA II">ELECTIVA DE ÁREA II</option>
+<option value="ÉTICA PROFESIONAL">ÉTICA PROFESIONAL</option>
+<option value="PROYECTO DE GRADO I">PROYECTO DE GRADO I</option>
+<option value="ELECTIVA DE ÁREA III">ELECTIVA DE ÁREA III</option>
+<option value="ELECTIVA LIBRE II">ELECTIVA LIBRE II</option>
+<option value="PROYECTO DE GRADO II">PROYECTO DE GRADO II</option>
+<option value="INFORMÁTICA EDUCATIVA">INFORMÁTICA EDUCATIVA</option>
+<option value="GERENCIA DE PROYECTO">GERENCIA DE PROYECTO</option>
+<option value="ELECTIVA DE ÁREA III">ELECTIVA DE ÁREA III</option>
+              
+            </select>
+            <i class="bi bi-caret-down-fill"></i>
+
+            <label for="number">Identificación de la sección</label>
+            <input type="number" name="seccion" id="number" required>
+
+            <label for="archivo">Listado de estudiantes (PDF)</label>
+            <input type="file" name="archivo" accept="application/pdf" >
+
+            <input class="btn" type="submit" value="Procesar y cargar estudiantes" style="width:114%">
+        </div>
+    </form>
+</body>
+</html>

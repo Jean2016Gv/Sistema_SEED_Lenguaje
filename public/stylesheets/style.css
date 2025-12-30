@@ -1,0 +1,211 @@
+:root {
+  --var-fondo-1: #5e9d4f ;
+  --var-fondo-2: #d9ffc3;
+  --var-buscador: #ffffff; /* Light Greenish White */
+  --var-columna: #f3f0e6; /* Olive Drab */
+  --var-sombra: #d2d2ba ;
+  --var-input: #f8fff3;
+  --var-linea: #1c751c;
+  --var-texto:#3d3103;
+  --var-btn:#87be76;
+  --var-btn-hover: #62a135;
+  --var-btn-sombra: #67a739;
+  --var-btn-eliminar: #468f34;
+  --var-btn-vaciar: #214c1a;
+  --var-texto-input: #3d3103;
+  --var-header: #f3f0e6;;
+  --var-texto-cuadro:#3d3103;
+  --var-linea-btn:#1c751c;
+} 
+
+:root.invert {
+  --var-fondo-1: #001d00 ;
+  --var-fondo-2: #316327;
+  --var-buscador: #ffffff;
+  --var-columna: rgb(238, 238, 238); /* Olive Drab */
+   --var-linea: #0a640a;
+   --var-linea-btn: #003600;
+  --var-texto:rgb(238, 238, 238);
+  --var-header:#4da34d;
+  --var-btn:#559e43;
+  --var-btn-sombra: #417b35;
+  --var-texto-input: #000000;
+  --var-texto-cuadro: #000000;
+  --var-sombra: #3e863e;
+}
+
+*{
+  transition: background-color 1s;
+}
+
+
+/* Importando fuente Google - Open Sans */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, var(--var-fondo-1), var(--var-fondo-2));
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Fondo de bienvenida */
+.bienvenida-naturaleza {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0; /* Elimina márgenes que puedan afectar el centrado */
+  height: auto;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Contenedor principal */
+.contenedor-bienvenida {
+  background: var(--var-columna);
+  padding: 3rem 4rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(34, 49, 63, 0.15);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  height: 1060px;
+}
+
+/* Título principal */
+.contenedor-bienvenida h1 {
+  color: #3d3103;
+  font-size: 2.5em;
+  margin-bottom: 1rem;
+  font-family: 'Higuera', sans-serif;
+  font-weight: 600;
+}
+
+/* Logo SEED */
+.logo-seed {
+   background: linear-gradient(to right, #5fb800, #86b807);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: 'Higuera', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  text-shadow: 
+        -1px -1px 0 #5fb800,  
+         1px -1px 0 #437c06,  
+        -1px  1px 0 #437c06,  
+         1px  1px 0 #5fb800
+}
+
+/* Párrafos */
+.contenedor-bienvenida p {
+  color: #3d3103;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  line-height: 2;
+}
+
+p{
+  font-weight: 500;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 1px;
+}
+
+.contenedor-texto {
+  width: 500px;
+  word-wrap: break-word;
+  color: #3d3103;
+}
+
+/* Botón principal */
+.contenedor-bienvenida a {
+  display: inline-block;
+  background: var(--var-btn);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  margin-top: 1.5rem;
+}
+
+.contenedor-bienvenida a:hover {
+  background: var(--var-btn-sombra);
+}
+
+/*Franja*/
+.franja{
+  background: #309212;
+  box-shadow: 0 8px 32px rgba(34, 49, 63, 0.15);
+  text-align: center;
+  justify-content: center;
+  width: 126%;
+  height: 50px;
+  margin: 0;
+  margin-left: -13%;
+}
+
+.franja h2 {
+  color: #ffffff;
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+}
+
+h2{
+  transform: translateY(19%);
+  font-family: 'Reddit Sans', sans-serif;
+  letter-spacing: 2px;
+}
+
+
+/* Sección secundaria */
+.contenedor-bienvenida section h3 {
+  color: #3d3103;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.contenedor-bienvenida section p {
+  color: #3d3103;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  line-height: 2;
+  text-align: justify;
+}
+
+.contenedor2-texto{
+  width: 550px;
+  word-wrap: break-word;
+  margin-left: -5%;
+}
+
+/* Footer */
+footer {
+  flex-shrink: 0;
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--var-texto-cuadro);
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.7); /* Fondo claro solo para el footer */
+  width: 100%;
+  padding: 0.7rem 0; /* Solo el alto del texto */
+  box-sizing: border-box;
+  font-weight: bold;
+}
+

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gracias por trabajar con SEED</title>
+    <link rel="stylesheet" href="/stylesheets/imprimir.css">
+    <style>
+        #contenido-pdf {
+            width: 297mm;
+            min-height: 210mm;
+            max-width: 297mm;
+            margin: auto;
+            background: #fff;
+            box-sizing: border-box;
+            padding: 10mm 10mm 30mm 10mm; /* Márgenes internos para que no corte el contenido */
+        }
+        table {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            
+        }
+        body { background: #fff; }
+    </style>
+</head>
+<body>
+    <div id="contenido-pdf">
+        <div class="header-logos">
+            <img src="/images/ais1.png" alt="AIS" class="logo-ais">
+            <img src="/images/unerg.png" alt="UNERG" class="logo-unerg">
+        </div>
+        <h5 class="pollo">República Bolivariana de Venezuela. <br>
+        Ministerio del Poder Popular para la Educación Universitaria. <br>
+        Universidad Nacional Experimental De Los Llanos Centrales “Rómulo Gallegos”. <br>
+        San Juan de los Morros. Estado Guárico. <br>
+        Área de Ingeniería de Sistemas. <br>
+        Programa de Ingeniería en Informática. <br>
+        </h5>
+        <div style="text-align:right; margin-top:20px; margin-right: 30px;">
+            <p>Fecha de impresión: <%= new Date().toLocaleDateString() %></p>
+            <p>Hora de impresión: <%= new Date().toLocaleTimeString() %></p>
+        </div>
+
+        <div style="text-align:center; margin-bottom:20px;">
+            <h2>Listado de Estudiantes</h2>
+            <p><strong>Materia:</strong> <%= proyecto.materia %> | <strong>Sección:</strong> <%= proyecto.seccion %></p>
+            <button class="no-print" onclick="window.print()" style="margin-bottom:20px;">Descargar PDF</button>
+            <button class="no-print" id="btn-descargar-excel" style="margin-bottom:20px; margin-left:10px;">Descargar Excel</button>
+           <!-- <button class="no-print" id="btn-descargar-pdf" style="margin-bottom:20px; margin-left:10px;">Descargar PDF</button>-->
+            <a class="no-print" href="/registro/<%= proyecto.id_proyecto %>" style="margin-left:20px;">Volver</a>
+            <!-- Filtros para impresión -->
+            <div class="no-print" style="margin-bottom: 20px; text-align: center;">
+                <select id="filtro-imprimir-select" class="filtro-select" >
+                    <option value="todos">Todos</option>
+                    <option value="masculino">Solo Masculinos</option>
+                    <option value="femenino">Solo Femeninas</option>
+                    <option value="masculino-aprobado">Varones Aprobados</option>
+                    <option value="masculino-reprobado">Varones Reprobados</option>
+                    <option value="femenino-aprobado">Femeninas Aprobadas</option>
+                    <option value="femenino-reprobado">Femeninas Reprobadas</option>
+                    <option value="aprobado">Todos Aprobados</option>
+                    <option value="reprobado">Todos Reprobados</option>
+                </select>
+            </div>
+        </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th class="col-num" rowspan="2">N°</th>
+                    <th class="col-apellido" rowspan="2">Apellidos</th>
+                    <th class="col-nombre" rowspan="2">Nombres</th>
+                    <th class="col-cedula" rowspan="2">Cédula</th>
+                    <th class="col-genero" rowspan="2">Género</th>
+                    <% for(let lapso = 0; lapso < 3; lapso++) { %>
+                        <th colspan="4">Lapso <%= lapso + 1 %></th>
+                    <% } %>
+                    <th rowspan="2">Nota D</th>
+                    <th rowspan="2">Status</th>
+                </tr>
+                <tr>
+                    <% for(let lapso = 0; lapso < 3; lapso++) { %>
+                        <th>I</th>
+                        <th>II</th>
+                        <th>III</th>
+                        <th>Nota Final</th>
+                    <% } %>
+                </tr>
+            </thead>
+            <tbody>
+                <% estudiantes.forEach(function(est, idx) { %>
+                    <tr data-genero="<%= est.genero %>" data-status="<%= (est.status || '').toLowerCase() %>">
+                        <td class="col-num" style="text-align:center;"><%= idx + 1 %></td>
+                        <td class="col-apellido"><%= est.apellido %></td>
+                        <td class="col-nombre"><%= est.nombre %></td>
+                        <td class="col-cedula"><%= est.cedula %></td>
+                        <td class="col-genero"><%= est.genero %></td>
+                        <% for(let lapso = 0; lapso < 3; lapso++) { %>
+                            <% for(let act = 0; act < 3; act++) { 
+                                const nombreAct = nombresActividades[lapso][act];
+                                const nota = actividadesPorEstudiante[est.id_estudiante] && actividadesPorEstudiante[est.id_estudiante][lapso+1] && nombreAct
+                                    ? actividadesPorEstudiante[est.id_estudiante][lapso+1][nombreAct] : '';
+                            %>
+                                <td style="text-align:center;"><%= nota !== undefined ? nota : '' %></td>
+                            <% } %>
+                            <td style="text-align:center;">
+                                <% if (lapso === 0) { %>
+                                    <%= est.nota_final_lapso1 !== undefined ? est.nota_final_lapso1 : '' %>
+                                <% } else if (lapso === 1) { %>
+                                    <%= est.nota_final_lapso2 !== undefined ? est.nota_final_lapso2 : '' %>
+                                <% } else if (lapso === 2) { %>
+                                    <%= est.nota_final_lapso3 !== undefined ? est.nota_final_lapso3 : '' %>
+                                <% } %>
+                            </td>
+                        <% } %>
+                        <td style="text-align:center;"><%= est.nota_final !== undefined ? est.nota_final : '' %></td>
+                        <td style="text-align:center;"><%= est.status || '' %></td>
+                    </tr>
+                <% }) %>
+                <script src="/javascripts/imprimir.js"></script>
+            </tbody>
+        </table>
+
+        
+    </div>
+    <!-- ...botones y filtros fuera de #contenido-pdf... -->
+</body>
+<script src="/javascripts/html2pdf.bundle.min.js"></script>
+<script src="/javascripts/xlsx.full.min.js"></script>
+<script>
+document.getElementById('btn-descargar-excel').addEventListener('click', function() {
+    var table = document.querySelector('table');
+    // Clona la tabla para no modificar la original
+    var tableClone = table.cloneNode(true);
+
+    // Elimina las filas ocultas (por filtro)
+    Array.from(tableClone.tBodies[0].rows).forEach(function(row) {
+        if (row.style.display === 'none') {
+            row.parentNode.removeChild(row);
+        }
+    });
+
+    var wb = XLSX.utils.table_to_book(tableClone, {sheet:"Estudiantes"});
+    XLSX.writeFile(wb, 'listado_estudiantes.xlsx');
+});
+
+document.getElementById('btn-descargar-pdf').addEventListener('click', function() {
+    var element = document.getElementById('contenido-pdf');
+    element.classList.add('pdf-export');
+    html2pdf().set({
+        margin: [0, 0, 0, 0],
+        filename: 'listado_estudiantes.pdf',
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+    }).from(element).save().then(() => {
+        element.classList.remove('pdf-export');
+    });
+});
+</script>
+</html>

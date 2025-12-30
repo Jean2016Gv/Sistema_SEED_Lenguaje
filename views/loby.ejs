@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="SEED - Plataforma de Evaluación" />
+<meta property="og:description" content="Optimiza la creación de planillas de evaluación con SEED." />
+<meta property="og:image" content="https://sis3-6y8j.onrender.com/images/logo.png" />
+<meta property="og:url" content="https://sis3-6y8j.onrender.com" />
+<meta property="og:type" content="website" />
+
+<!-- Meta Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SEED - Plataforma de Evaluación" />
+<meta name="twitter:description" content="Optimiza la creación de planillas de evaluación con SEED." />
+<meta name="twitter:image" content="https://sis3-6y8j.onrender.com/images/logo.png" />
+    <link rel="icon" href="https://fav.farm/🔥" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="./stylesheets/loby.css" />
+    <link rel="stylesheet" href="/stylesheets/loby.css" />
+    <script src="/javascripts/loby.js" defer></script>
+    <script src="/javascripts/modoOscuro.js" defer></script>
+  </head>
+<body>
+    <aside class="sidebar">
+      <div class="sidebar__logo">
+        <img src="/images/logo2.png" alt="Logo Panel" class="logo__img" /> 
+        <p class="logo_txt">Panel</p>
+      </div>
+
+      <div class="lists">
+        <ul>
+          <li>
+            <span class="material-symbols-outlined"></span><span><a href="/logout">Cerrar sesión</a></span>
+          </li>
+          <li>
+            <span class="material-symbols-outlined"></span><span><a href='/creacion/<%= id_docente %>'>Nuevo Registro</a></span>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            
+              <span class="material-symbols-outlined"></span><span><a href="/ajustes">Ajustes</a></span>
+            
+          </li>
+        </ul>
+        
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <div class="search">
+          <span class="material-symbols-outlined">search</span>
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="buscar"
+            class="search__input"
+          />
+        </div>
+        <div class="status">
+          <span class="material-symbols-outlined invert__theme"></span>
+          <span class="material-symbols-outlined">notifications</span>
+
+          <div class="cuadro2">
+            <div class="cuadro-img">
+              <img
+               src="/images/logo.png"
+               alt="userLogo"
+               class="user__logo user__logo--small"
+              />
+            </div>
+      
+              <div class="cuadro-span">
+                <span class="username">Bienvenido a SEED, Docente <%= usuario %></span>
+              </div>
+          </div>
+        </div>
+
+        <div class="cuadro">
+          <div class="welcome">
+            <img
+             src="/images/logo.png"
+             class="user__logo user__logo--big"
+            />
+           <div>
+             <p>Que Estudiantes</p>
+             <p>Aprobaremos Hoy?</p>
+            </div>
+          </div>
+
+          <div class="header__buttons">
+           <button class="btn" onclick="window.location.href='/creacion/<%= id_docente %>'">Nuevo</button>
+           <button type="btn" onclick="window.location.href= '/logout'">Cerrar Sesión</button>
+           <button type="btn" onclick="window.location.href= '/ajustes'">Configuración</button>
+         </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="projects">
+          <h2 style="color: #3d3103; ">Tus Proyectos</h2>
+          <div class="cards" style="color: #3d3103;">
+            <% proyectos.forEach(function(proyecto) { %>
+              <div class="card" data-id-proyecto="<%= proyecto.id_proyecto %>">
+                <p class="card__heading"><%= proyecto.materia %></p>
+                <p class="card__desc">Sección: <%= proyecto.seccion %></p>
+                <a href="/registro/<%= proyecto.id_proyecto %>" class="btn">Ver planilla</a>
+                <button class="btn-eliminar-proyecto" style="color:white; margin-top:8px; border:none; font-weight: bold; cursor:pointer; ">Eliminar</button>
+              </div>
+            <% }) %>
+          </div>
+        </section>
+
+      </div>
+    </main>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search');
+  const cards = document.querySelectorAll('.card');
+
+  searchInput.addEventListener('input', function() {
+    const filtro = searchInput.value.trim().toLowerCase();
+    cards.forEach(card => {
+      const materia = card.querySelector('.card__heading').textContent.toLowerCase();
+      if (materia.includes(filtro)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+  </body>
+</html>
